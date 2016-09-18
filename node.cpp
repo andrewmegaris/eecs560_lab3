@@ -1,7 +1,7 @@
 #include <cstddef>
-#include <node.h>
+#include "node.h"
 
-Node::Node() : value(0), flag(false) {}
+Node::Node() : value(-99), flag(false) {}
 
 Node::~Node() { delete this}
 

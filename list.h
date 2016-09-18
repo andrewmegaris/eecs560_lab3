@@ -1,21 +1,23 @@
 #ifndef _LIST
 #define _LIST
 
-#include "node.h"
+#include "node.cpp"
 
 class List {
   public:
     List(int);
     ~List();
-    int hash(int);
-    void insert(int);
+    int hash(int,int);
+    bool insert(int);
     void remove(int);
     void print();
-    bool contains(int[],int,int);
+    bool contains(int);
     bool isFull();
+    int search(int);
 
   private:
     int size;
+
 };
 
 
