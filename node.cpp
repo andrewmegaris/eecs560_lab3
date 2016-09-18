@@ -1,14 +1,14 @@
 #include <cstddef>
-#include "node.h"
+
 
 Node::Node() : value(-99), flag(false) {}
 
-Node::~Node() { delete this}
+Node::~Node() { delete this;}
 
-int Node::getValue(){ return this.value}
+int Node::getValue(){ return this->value;}
 
-bool Node::getFlag(){ return this.flag}
+bool Node::getFlag(){ return this->flag;}
 
-void Node::setValue(int inputValue){ this.value = inputValue;}
+void Node::setValue(int inputValue){ this->value = inputValue;}
 
-void Node::setFlag(){this.flag = true;}
+void Node::setFlag(){this->flag = true;}

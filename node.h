@@ -1,5 +1,5 @@
-#ifndef _NODE
-#define _NODE
+#ifndef NODE_H
+#define NODE_H
 
 class Node {
 
@@ -15,5 +15,7 @@ class Node {
     int value;
     bool flag;
 }* nodePtr;
+
+#include "node.cpp"
 
 #endif

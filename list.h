@@ -1,7 +1,11 @@
-#ifndef _LIST
-#define _LIST
+#ifndef LIST_H
+#define LIST_H
 
-#include "node.cpp"
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include "node.h"
 
 class List {
   public:
@@ -14,11 +18,11 @@ class List {
     bool contains(int);
     bool isFull();
     int search(int);
-
   private:
     int size;
 
 };
 
+#include "list.cpp"
 
 #endif

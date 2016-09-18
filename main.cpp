@@ -1,7 +1,5 @@
-#include <string>
-#include <fstream>
-#include <iomanip>
-#include "list.cpp"
+#include "list.h"
+
 using namespace std;
 
 int main(int argc, char** argv){
@@ -11,14 +9,15 @@ int inputNumber;
 int userInput = 1;
 int inputValue;
 ifstream infile("data.txt");
-List hashTable;
+
 if (!infile){ cout << "file read error" << std::endl; return 0;}
 infile >> bucketLength;
-
+List hashTable = List(bucketLength);
 while (infile >> inputNumber){
   hashTable.insert(inputNumber);
 }
-cout << "starting list: " << hashTable.print(); << endl;
+cout << "starting list: ";
+hashTable.print();
 
 while(userInput != 4){
   cout << "1. Insert new item" << std::endl;
