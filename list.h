@@ -4,19 +4,18 @@
 
 #include "bucket.h"
 
-template<class ItemType>
 class List {
   public: 
     List();
     List(int);
     ~List();
-    int hash(ItemType&,int);
-    int contains(ItemType&);
+    int hash(int&,int);
+    int contains(int&);
     bool isFull();
-    bool insert(ItemType&);
-    bool remove(ItemType&);
+    bool insert(int&);
+    bool remove(int&);
     void print();
-    Bucket<ItemType>* bucketTable;
+    Bucket* bucketTable;
     int tableSize;
 };
 

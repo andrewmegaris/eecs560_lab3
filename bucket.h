@@ -1,7 +1,7 @@
-#ifndef _BUCKET
-#define _BUCKET
+#ifndef BUCKET_H
+#define BUCKET_H
 
-template<class ItemType>
+
 class Bucket {
 
   public:

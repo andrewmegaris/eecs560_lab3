@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 
   inputFile >> bucketTableSize;
   
-  List<int> hashTable(bucketTableSize);
+  List hashTable(bucketTableSize);
 
   while (inputFile >> bucketValue){
     hashTable.insert(bucketValue);
