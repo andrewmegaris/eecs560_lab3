@@ -1,26 +1,28 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef _LIST
+#define _LIST
 
-#include <string>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include "node.h"
 
+#include "bucket.h"
+
+template<class ItemType>
 class List {
-  public:
+  public: 
+
+    List();
     List(int);
     ~List();
-    int hash(int,int);
-    bool insert(int);
-    void remove(int);
-    void print();
-    bool contains(int);
-    bool isFull();
-    int search(int);
-  private:
-    int size;
 
+
+    int hash(ItemType&,int);
+    int contains(ItemType&);
+    bool isFull();
+    bool insert(ItemType&);
+    bool remove(ItemType&);
+    void print();
+
+
+    Bucket<ItemType>* bucketTable;
+    int tableSize;
 };
 
 #include "list.cpp"

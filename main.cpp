@@ -1,53 +1,65 @@
-#include "list.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
-using namespace std;
+#include "list.h"
 
 int main(int argc, char** argv){
 
-int bucketLength;
-int inputNumber;
-int userInput = 1;
-int inputValue;
-ifstream infile("data.txt");
+  int bucketTableSize;
+  int bucketValue;
+  int userInput = 0;
 
-if (!infile){ cout << "file read error" << std::endl; return 0;}
-infile >> bucketLength;
-List hashTable = List(bucketLength);
-while (infile >> inputNumber){
-  hashTable.insert(inputNumber);
-}
-cout << "starting list: ";
-hashTable.print();
+  std::ifstream inputFile;
+  inputFile.open("data.txt");
+  
+  if(!inputFile){
+    std::cout << "Error Opening File" << std::endl;
+    return 0;
+  }
 
-while(userInput != 4){
-  cout << "1. Insert new item" << std::endl;
-  cout << "2. Delete an item" << std::endl;
-  cout << "3. Print hash table" << std::endl;
-  cout << "4. Exit program" << std::endl;
-  cin >> userInput;
+  inputFile >> bucketTableSize;
+  
+  List<int> hashTable(bucketTableSize);
 
-  switch(userInput){
-    case 1: 
-            cout << "Type input value: ";
-            cin >> inputValue;
-            hashTable.insert(inputValue);
-            break;
-    case 2: 
-            cout << "Type delete value: ";
-            cin >> inputValue;
-            hashTable.remove(inputValue);
-            break;
-    case 3: 
-            cout << "printing current list" << std::endl;
-            hashTable.print();
-            break;
-    case 4:
-            cout << "Exiting program" << std::endl;
-            break;
-    default:
-            cout << "invalid input" << std::endl;
-            break;
+  while (inputFile >> bucketValue){
+    hashTable.insert(bucketValue);
+  }
+
+  while(userInput != 4){
+    std::cout << "Please choose on of the following commands" << std::endl;
+    std::cout << "1 - insert " << std::endl;
+    std::cout << "2 - delete " << std::endl;
+    std::cout << "3 - print " << std::endl;
+    std::cout << "4 - exit " << std::endl;
+    std::cout << "-----------" << std::endl;
+    std::cout << "user input: "; 
+    std::cin >> userInput;
+    switch(userInput){
+      case 1:
+        std::cout << "What number do you want to insert into the hash table?" << std::endl;
+        std::cin >> bucketValue;
+        hashTable.insert(bucketValue);
+        break;
+      case 2:
+        std::cout << "What number do you want to remove from the hash table?" << std::endl;
+        std::cin >> bucketValue;
+        hashTable.remove(bucketValue);
+        break;
+      case 3:
+        hashTable.print();
+        break;
+      case 4: 
+        std::cout << "exiting" << std::endl;
+        break;
+      default:
+        std::cout << "invalid input" << std::endl;
+        break;
+    }
+
+
+
+
   }
 }
 
-}
