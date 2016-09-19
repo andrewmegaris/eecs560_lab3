@@ -25,7 +25,6 @@ int main(int argc, char** argv){
   while (inputFile >> bucketValue){
     hashTable.insert(bucketValue);
   }
-
   while(userInput != 4){
     std::cout << "Please choose on of the following commands" << std::endl;
     std::cout << "1 - insert " << std::endl;
@@ -56,10 +55,6 @@ int main(int argc, char** argv){
         std::cout << "invalid input" << std::endl;
         break;
     }
-
-
-
-
   }
 }
 

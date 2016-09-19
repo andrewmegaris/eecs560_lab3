@@ -11,7 +11,6 @@ List<ItemType>::List(int inputSize) : tableSize(inputSize){
   }
 }
 
-
 template<class ItemType>
 bool List<ItemType>::isFull(){
   for(int x = 0 ; x < tableSize ; x++){
@@ -28,17 +27,17 @@ List<ItemType>::~List(){
 
 template<class ItemType>
 int List<ItemType>::hash(ItemType& inputValue, int i){
-  return ( inputValue  + ( i * i ) ) % tableSize ;
+  return ((inputValue+(i*i))%tableSize);
 }
 
 template<class ItemType>
 bool List<ItemType>::insert(ItemType& insertValue){
-  int index = 0;
   if (contains(insertValue) != -1){
     std::cout << "Value already in table" << std::endl;
     return false;
   }
-  else{
+  else{ 
+    int index = 0;
     std::cout << "else" << std::endl;
     do{
       std::cout << "do" << std::endl;
@@ -70,7 +69,6 @@ void List<ItemType>::print(){
 template<class ItemType>
 bool List<ItemType>::remove(ItemType& removeValue){
   int index = contains(removeValue);
-
   if (index == -1){
     return false;
   }
@@ -85,7 +83,6 @@ template<class ItemType>
 int List<ItemType>::contains(ItemType& inputValue){
   int index = 0;
   int address;
-
   do{
     address = hash(inputValue, index);
     if(bucketTable[address].value == inputValue){
@@ -93,6 +90,5 @@ int List<ItemType>::contains(ItemType& inputValue){
     }
     index++;
   }while(bucketTable[address].flag == true || bucketTable[address].value != -1 && index < tableSize);
-return -1;
-
+  return -1;
 }
